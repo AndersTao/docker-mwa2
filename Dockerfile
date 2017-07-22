@@ -22,6 +22,8 @@ COPY docker/django_wsgiserver /app/django_wsgiserver/
 COPY docker/admin_tools/ /app/admin_tools/
 
 WORKDIR /app
-#
+
+EXPOSE 80
+
 ENTRYPOINT ["/bin/sh", "/usr/sbin/run.sh"]
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
